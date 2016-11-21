@@ -1,0 +1,72 @@
+#{extends 'main.html' /}
+#{set title:noticia.titulo /}
+
+#{if flash.success}
+<p class="success">${flash.success}</p>
+#{/if}
+
+<ul id="pagination">
+    #{if noticia.previous()}
+    <li id="previous">
+        <a href="@{Application.show(noticia.previous().id)}">
+            ${noticia.previous().titulo}
+        </a>
+    </li>
+    #{/if}
+    #{if noticia.next()}
+    <li id="next">
+        <a href="@{Application.show(noticia.next().id)}">
+            ${noticia.next().titulo}
+        </a>
+    </li>
+    #{/if}
+</ul>
+
+#{display noticia:noticia, as:'full' /}
+
+
+<h3>Ingresando un nuevo comentario</h3>
+
+#{form @Application.noticiaComentario(noticia.id)}
+
+#{ifErrors}
+    <p class="error">
+        ${errors[0]}
+    </p>
+#{/ifErrors}
+
+<p>
+    <label for="author">Tu nombre: </label>
+    <input type="text" name="author" id="author" value="${params.author}" />
+</p>
+<p>
+    <label for="content">Tu mensaje: </label>
+    <textarea name="content" id="content">${params.content}</textarea>
+</p>
+<p>
+    <label for="code">Por favor escriba el código abajo: </label>
+    <img src="@{Application.captcha(randomID)}" />
+    <br />
+    <input type="text" name="code" id="code" size="18" value="" />
+    <input type="hidden" name="randomID" value="${randomID}" />
+</p>
+<p>
+    <input type="submit" value="Agregar comentario" />
+</p>
+#{/form}
+
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        // Expose the form 
+        $('form').click(function () {
+            $('form').expose({api: true}).load();
+        });
+
+        // If there is an error, focus to form
+        if ($('form .error').size()) {
+            $('form').expose({api: true, loadSpeed: 0}).load();
+            $('form input[type=text]').get(0).focus();
+        }
+    });
+</script>

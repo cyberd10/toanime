@@ -1,0 +1,64 @@
+#{extends 'admin.html' /}
+ 
+#{ifnot noticia?.id}
+    <h3>Escribir, <span>una nueva noticia</span></h3>
+#{/ifnot}
+#{else}
+    <h3>Editar, <span>esta noticia</span></h3>
+#{/else}
+ 
+#{form @save(noticia?.id)}
+ 
+    #{ifErrors}
+        <p class="error">
+            Please correct these errors.
+        </p>
+    #{/ifErrors}
+     
+    <p>
+        #{field 'titulo'}
+        <label>Titulo:</label>
+        <input type="text" name="${field.name}" 
+            value="${noticia?.titulo}" />
+        <span class="error">#{error 'noticia.titulo' /}</span>
+        #{/field}
+    </p>
+ 
+    <p>
+        #{field 'content'}
+        <label>Contenido:</label>
+        <textarea name="${field.name}">
+          ${noticia?.content}
+        </textarea>
+        <span class="error">#{error 'noticia.titulo' /}</span>
+        #{/field}
+    </p>
+
+    <p>
+        #{field 'imagen'}
+        <label>Url de la imagen:</label>
+        <textarea name="${field.name}">
+          ${noticia?.imagen}
+        </textarea>
+        <span class="error">#{error 'noticia.imagen' /}</span>
+        #{/field}
+    </p>
+    
+    <p>
+        <input type="submit" value="Publicar esta noticia en TodoAnime" />
+    </p>
+            <div>
+           <script>(function (win, doc, script, source, objectName) { (win.RadionomyPlayerObject = win.RadionomyPlayerObject || []).push(objectName); win[objectName] = win[objectName] || function (k, v) { (win[objectName].parameters = win[objectName].parameters || { src: source, version: '1.1' })[k] = v; }; var js, rjs = doc.getElementsByTagName(script)[0]; js = doc.createElement(script); js.async = 1; js.src = source; rjs.parentNode.insertBefore(js, rjs); }(window, document, 'script', 'https://www.radionomy.com/js/radionomy.player.js', 'radplayer'));
+                radplayer('url', 'radio-anime');
+                radplayer('type', 'medium');
+                radplayer('autoplay', '1');
+                radplayer('volume', '50');
+                radplayer('color1', '#000000');
+                radplayer('color2', '#ffffff');
+            </script>
+            <div class="radionomy-player"></div>
+
+        
+        </div>
+    
+#{/form}

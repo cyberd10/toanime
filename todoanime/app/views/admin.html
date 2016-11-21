@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Administracion</title>       
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /}   
+        <link rel="stylesheet" type="text/css" media="screen" 
+                href="@{'/public/stylesheets/main.css'}" />
+        <link rel="shortcut icon" type="image/png" 
+                href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}"></script>
+        <script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}"></script>
+    </head>
+    <body id="admin">
+        
+        <div id="header">
+            <div id="logo">
+                TodoAnime. <span>administracion</span>
+            </div>
+            <ul id="tools">
+                <li>
+                    <a href="@{Secure.logout()}">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+        
+
+
+        <div id="main">
+    
+            <ul id="adminMenu">
+                <li class="${request.controller == 'Admin' ? 'selected' : ''}">
+            <a href="@{Admin.index()}">Mis noticias</a>
+                </li>
+                #{secure.check 'admin'}
+                    <li class="${request.controller == 'Noticias' ? 'selected' : ''}">
+                        <a href="@{Noticias.list()}">Noticias</a>
+                    </li>
+                    <li class="${request.controller == 'Comentarios' ? 'selected' : ''}">
+                        <a href="@{Comentarios.list()}">Comentarios</a>
+                    </li>
+                    <li class="${request.controller == 'Usuarios' ? 'selected' : ''}">
+                        <a href="@{Usuarios.list()}">Usuarios</a>
+                    </li>
+                #{/secure.check}
+            </ul>
+            #{doLayout /} 
+        </div>
+        <div>
+           <script>(function (win, doc, script, source, objectName) { (win.RadionomyPlayerObject = win.RadionomyPlayerObject || []).push(objectName); win[objectName] = win[objectName] || function (k, v) { (win[objectName].parameters = win[objectName].parameters || { src: source, version: '1.1' })[k] = v; }; var js, rjs = doc.getElementsByTagName(script)[0]; js = doc.createElement(script); js.async = 1; js.src = source; rjs.parentNode.insertBefore(js, rjs); }(window, document, 'script', 'https://www.radionomy.com/js/radionomy.player.js', 'radplayer'));
+                radplayer('url', 'radio-anime');
+                radplayer('type', 'medium');
+                radplayer('autoplay', '1');
+                radplayer('volume', '50');
+                radplayer('color1', '#000000');
+                radplayer('color2', '#ffffff');
+            </script>
+            <div class="radionomy-player"></div>
+
+        
+        </div>
+        
+
+        <p id="footer">
+            Una comunidad dispuesta a alimentar toda la aficion friki amante del buen anime y del cafe.
+        </p>
+        
+    </body>
+    
+
+    
+</html>

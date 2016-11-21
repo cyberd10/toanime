@@ -1,0 +1,6 @@
+13 nov 2016 17:21:51,870 INFO  ~ Starting C:\play-1.4.3\todoanime
+13 nov 2016 17:21:52,753 WARN  ~ You're running Play! in DEV mode
+13 nov 2016 17:21:52,853 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+13 nov 2016 17:22:00,957 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0 for default
+13 nov 2016 17:22:02,912 INFO  ~ Application 'TodoAnime' is now started !
+13 nov 2016 17:22:39,077 INFO  ~ Restart: Signature change !

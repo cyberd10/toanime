@@ -1,0 +1,64 @@
+# DATOS INICIALES QUE CARGARA EL BOOTSTRAP
+
+Usuario(alexis):
+    email:          alexis@hotmail.com
+    password:       orosco69
+    nombreCompleto: Alexis
+    isAdmin:        true
+    
+Usuario(omar):
+    email:          omarsito@hotmail.com
+    password:       orosco69
+    nombreCompleto: Omar    
+    
+Noticia(primerNoticiaAlexis):
+    titulo:         Shingeki no kyojin
+    fechaSubida:    2016-11-14
+    author:         alexis
+    content:        >
+                    El mejor anime de todos los tiempos papu! el mas super megra pro de los pro
+                    no hay igualacion papu, trumpsito se inspiro en su muro para su carrera papu, adioh papu.
+    imagen:         >
+                    URL DE LA IMAGEN
+
+Noticia(segundaNoticiaAlexis):
+    titulo:         Just a oroscada magica
+    fechaSubida:    2016-09-25
+    author:         alexis
+    content:        >
+                    Asi como lo leiste, la oroscada magica vive.
+    imagen:         >
+                    URL DE LA IMAGEN
+                    
+Noticia(primerNoticiaOmar):
+    titulo:         El freimguork mas podereoso
+    fechaSubida:    2016-09-06
+    author:         omar
+    content:        >
+                    plei la plei la pleistore la palce de la transformada de oroscadas magicas.
+    imagen:         >
+                    URL DE LA IMAGEN
+
+                    
+Comentario(c1):
+    author:         Guest
+    content:        >
+                    Estas en lo correcto!
+    fechaSubida:       2016-11-14
+    noticia:           primerNoticiaAlexis
+    
+Comentario(c2):
+    author:         Mike
+    content:        >
+                    Espero que este comentario se este leyendo....
+    fechaSubida:       2016-11-25
+    noticia:           primerNoticiaAlexis    
+    
+Comentario(c3):
+    author:         Tom
+    content:        >
+                    Me estan leyendo?
+    fechaSubida:       2016-06-05
+    noticia:           segundaNoticiaAlexis    
+                    
+                 

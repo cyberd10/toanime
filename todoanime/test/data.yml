@@ -1,0 +1,65 @@
+# Test data
+
+Usuario(alexis):
+    email:          alexis@hotmail.com
+    password:       orosco69
+    nombreCompleto: Alexis
+    isAdmin:        true
+    
+Usuario(omar):
+    email:          omarsito@hotmail.com
+    password:       orosco69
+    nombreCompleto:       Omar    
+    
+Noticia(primerNoticiaAlexis):
+    titulo:         Acerca del modelo de este trabajo
+    fechaSubida:    2016-11-14
+    author:         alexis
+    content:        >
+                    The model has a central position in a Play! application. It is the domain-specific 
+                    representation of the information on which the application operates.
+    imagen:         >
+                    kdjsdbfnksdjbnsakdnksajdgnkasjdbksajdbksjadbgkjasdbnkjgsandbkgjasndkgj
+
+Noticia(segundaNoticiaAlexis):
+    titulo:          Just a oroscada magica
+    fechaSubida:       2016-09-25
+    author:         alexis
+    content:        >
+                    Bueno, estoy haciendo pruebas.
+    imagen:         >
+                    kdjsdbfnksdjbnsakdnksajdgnkasjdbksajdbksjadbgkjasdbnkjgsandbkgjasndkgjjjjjjjj
+                    
+Noticia(primerNoticiaOmar):
+    titulo:          The MVC application
+    fechaSubida:       2016-09-06
+    author:         omar
+    content:        >
+                    A Play! application follows the MVC architectural pattern as applied to the 
+                    architecture of the Web.
+    imagen:         >
+                    kdjsdbfnksdjbnsakdnksajdgnkasjdb454654as6d5416s5a1d35a1s35d1a3s1d3a1s23as213as1
+
+                    
+Comentario(c1):
+    author:         Guest
+    content:        >
+                    Estas en lo correcto!
+    fechaSubida:       2016-11-14
+    noticia:           primerNoticiaAlexis
+    
+Comentario(c2):
+    author:         Mike
+    content:        >
+                    Espero que este comentario se este leyendo....
+    fechaSubida:       2016-11-25
+    noticia:           primerNoticiaAlexis    
+    
+Comentario(c3):
+    author:         Tom
+    content:        >
+                    M estan leyendo?
+    fechaSubida:       2016-06-05
+    noticia:           segundaNoticiaAlexis    
+                    
+                 

@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+ 
+#{if frontNoticia}
+    
+    #{display noticia:frontNoticia, as:'home' /}
+    
+    #{if olderNoticias.size()}
+    
+        <div class="older-noticias">
+            <h3>Noticias antiguas <span class="from">del sitio</span></h3>
+        
+            #{list items:olderNoticias, as:'oldNoticia'}
+                #{display noticia:oldNoticia, as:'teaser' /}
+            #{/list}
+        </div>
+        
+    #{/if}
+    
+#{/if}
+ 
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}

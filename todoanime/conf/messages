@@ -1,0 +1,13 @@
+titulo=Titutlo
+content=Contenido
+fechaSubida=Fecha de subida
+author=Autor
+noticia=Noticia relacionada
+email=Email
+password=Password
+imagen=URL de la imagen
+nombreCompleto=Nombre completo
+isAdmin=Usuario es admin
+secure.username=Email:
+secure.password=Contraseña:
+secure.signin=Ingresar

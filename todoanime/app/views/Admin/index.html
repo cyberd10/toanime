@@ -1,0 +1,17 @@
+#{extends 'admin.html' /}
+ 
+<h3>Bienvenido ${usuario}, <span>has redactado ${noticias.size() ?: 'no'} 
+${noticias.pluralize('noticia', 'noticias')}</span></h3>
+ 
+#{list items:noticias, as:'noticia'}
+    <p class="noticia ${noticia_parity}">
+        <a href="@{Admin.form(noticia.id)}">${noticia.titulo}</a>
+    </p>
+#{/list}
+ 
+<p id="newNoticia" >
+    <a href="@{form()}"><span>+</span> Escribir una nueva noticia</a>
+</p>
+
+
+

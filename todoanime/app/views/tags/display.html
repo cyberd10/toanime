@@ -1,0 +1,53 @@
+*{ Mostrar una noticia en alguno de estos modos: 'full', 'home' or 'teaser' }*
+ 
+<div class="noticia ${_as == 'teaser' ? 'teaser' : ''}">
+    <h2 class="noticia-titulo">
+        <br/><a href="@{Application.show(_noticia.id)}">${_noticia.titulo}</a>
+    </h2>
+    <div class="noticia-metadata">
+        <span class="noticia-author">by ${_noticia.author.nombreCompleto}</span>,
+        <span class="noticia-date">${_noticia.fechaSubida.format('dd MMM yy')}</span>
+        #{if _as != 'full'}
+            <span class="noticia-comentarios">
+                &nbsp;|&nbsp; ${_noticia.comentarios.size() ?: 'no'} 
+                comentario${_noticia.comentarios.size().pluralize()}
+                #{if _noticia.comentarios}
+                 , ultimo por ${_noticia.comentarios[-1].author}
+                #{/if}
+            </span>
+        #{/if}
+    </div>
+    #{if _as != 'teaser'}
+        <div class="noticia-content"><br/>
+            <div class="about">Detalles: </div>
+            ${_noticia.content.nl2br()} <br/>
+            <img src="${_noticia.imagen.nl2br()}" WIDTH="600" HEIGHT="400"/>
+            
+        </div>
+    #{/if}
+</div>
+ 
+#{if _as == 'full'}
+    <div class="comentarios">
+        <h3>
+            ${_noticia.comentarios.size() ?: 'no'} 
+            comentario${_noticia.comentarios.size().pluralize()}
+        </h3>
+        
+        #{list items:_noticia.comentarios, as:'comentario'}
+            <div class="comentario">
+                <div class="comentario-metadata">
+                    <span class="comentario-author">by ${comentario.author},</span>
+                    <span class="comentario-date">
+                        ${comentario.fechaSubida.format('dd MMM yy')}
+                    </span>
+                </div>
+                <div class="comentario-content">
+                    <div class="about">Detalles: </div>
+                    ${comentario.content.escape().nl2br()}
+                </div>
+            </div>
+        #{/list}
+        
+    </div>
+#{/if}
